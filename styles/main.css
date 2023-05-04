@@ -1,0 +1,19 @@
+#movie-results .card {
+  width: 12rem;
+}
+
+.radio {
+  padding-left: 1vw;
+}
+
+@media only screen and (min-width: 575px) {
+  #rhyme-results {
+    width: 50%;
+    float: left
+  }
+  
+  #movie-results {
+    width: 50%;
+    float: right
+  }
+}
