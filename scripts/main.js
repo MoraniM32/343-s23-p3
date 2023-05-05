@@ -192,12 +192,13 @@ const movieObj2DOMObj = (movieObj) => {
   }
 
   // Generates the imdb link on-click, helps limit API calls to demand.
-  // Error: Does not display on Google Chrome, but works fine Edge, Firefox, Firefox for android .
+  // Fixed: Switched API call from Search call to Title Details.
+  //        Now uses the given watchmode ID to directly grab the IMDb ID.
   const movieTextLink = document.createElement("a");
-  movieTextLink.href = '#' // https://www.imdb.com/${result_Type}/${imdb_id}/
+  movieTextLink.href = '#' // https://www.imdb.com/title/${imdb_id}/
   movieTextLink.onclick = async function (ev) {
     ev.preventDefault();
-    const url = `https://watchmode.p.rapidapi.com/search/?search_field=name&search_value=${movieObj.name}`;
+    const url = `https://watchmode.p.rapidapi.com/title/${movieObj.id}/details/`;
     const options = {
       method: 'GET',
       headers: {
@@ -211,9 +212,9 @@ const movieObj2DOMObj = (movieObj) => {
       const response = await fetch(url, options);
       const result = await response.text();
       const jsonResult = JSON.parse(result);
-      console.log(jsonResult.title_results[0]);
-      let found = jsonResult.title_results[0];
-      window.open(`https://www.imdb.com/${found.resultType}/${found.imdb_id}/`, "_blank");
+      console.log(jsonResult);
+      let found = jsonResult;
+      window.open(`https://www.imdb.com/title/${found.imdb_id}/`, "_blank");
     } catch (error) {
       console.error(error);
     }

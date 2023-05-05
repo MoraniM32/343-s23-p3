@@ -25,9 +25,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="report.html">Report</a>
-          </li>
         </ul>
         <form class="d-flex" role="search" id="top-search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
@@ -36,10 +33,10 @@
       </div>
     </div>
   </nav>
-  <!-- Tried to get this working, cannot seem to get sorting to work, disabled until fixed.-->
+  <!-- Orginally was suppose to have alphabetical sorting control over here, removed for deployed release.-->
   <div class="row">
     <nav class="col-sm-2">
-      <ul class="nav flex-column">
+      <!-- <ul class="nav flex-column">
         <li class="nav-item">
           <a class="nav-link disabled">Sorting Methods:</a>
         </li>
@@ -52,11 +49,11 @@
         <li class="radio">
           <input type="radio" name="sort" onclick=setSort(3) disabled>Z-A</a>
         </li>
-      </ul>
+      </ul> -->
     </nav>
     <main class="col">
       <h1 class="display-3">Project 3 - Movie Rhymer</h1>
-      <p class="lead">This project will look for rhymes of the given word, clicking on a rhyme will search for movies with that word and provide a link to its IMDb page.</p>
+      <p class="lead">Enter a word in the search bar to get started.  Generates rhymes and clicking on a rhyme will get movies with the rhyme in the title.</p>
       <ul id="rhyme-results">
       </ul>
       <section id="movie-results">
